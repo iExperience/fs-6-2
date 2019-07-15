@@ -159,7 +159,7 @@ Update users route - index.js
 ```js
 var fs = require("fs");
 
-router.get("/api/users", (req, res) => {
+app.get("/api/users", (req, res) => {
   //res.send('<h1>Hello World!</h1>');
   fs.readFile("./src/data/data.json", function(err, data) {
     if (err) throw err;
@@ -169,20 +169,6 @@ router.get("/api/users", (req, res) => {
 });
 ```
 
-
-### Middleware
-
-index.js  
-```js
-//Middleware function:
-const logger = (req,res,next) => {
-    console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}`);
-    next();
-}
-
-//Middleware execue:
-app.use(logger)
-```
 
 ### Middleware
 
